@@ -3,6 +3,7 @@ require('chromedriver');
 
 const test = async () => {
   let driver = await new Builder().forBrowser("chrome").build();
+    driver.manage().window().maximize()
 
   await driver.get("https://www.flipkart.com/");
   await driver.findElement(By.xpath('/html/body/div[2]/div/div/button')).click()
