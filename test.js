@@ -6,13 +6,16 @@ const test = async () => {
 
   await driver.get("https://www.flipkart.com/");
   await driver.findElement(By.xpath('/html/body/div[2]/div/div/button')).click()
-  await driver.findElement(By.name('q')).sendKeys('iphone 14')
+  await driver.findElement(By.name('q')).sendKeys('redmi 10')
   await driver.findElement(By.xpath('//*[@id="container"]/div/div[1]/div[1]/div[2]/div[2]/form/div/button')).click()
 
-  await driver.get('https://www.flipkart.com/apple-iphone-14-blue-128-gb/p/itmdb77f40da6b6d?pid=MOBGHWFHSV7GUFWA&lid=LSTMOBGHWFHSV7GUFWAIB1T9P&marketplace=FLIPKART&q=iphone+14&store=tyy%2F4io&srno=s_1_2&otracker=search&otracker1=search&iid=50c33213-5bd1-48ff-bad2-4ccc442f93c3.MOBGHWFHSV7GUFWA.SEARCH&ssid=2ku318ql280000001685986603082&qH=860f3715b8db08cd')
-  await driver.findElement(By.xpath('//*//*[@id="container"]/div/div[3]/div[1]/div[1]/div[2]/div/ul/li[1]/button')).click()
-  await driver.findElement(By.xpath('//*[@id="container"]/div/div[2]/div/div/div[1]/div/div[4]/div/form/button/span')).click()
+  await driver.get('https://www.flipkart.com/redmi-note-12-pro-5g-onyx-black-128-gb/p/itmbc9fd7adaa32a?pid=MOBGH2UVMHEPGSHM&lid=LSTMOBGH2UVMHEPGSHMZTFAGO&marketplace=FLIPKART&q=redmi+12+pro&store=tyy%2F4io&srno=s_1_1&otracker=AS_Query_OrganicAutoSuggest_2_8_na_na_ps&otracker1=AS_Query_OrganicAutoSuggest_2_8_na_na_ps&fm=Search&iid=a81cbe33-01e3-4196-b515-41914690f4c5.MOBGH2UVMHEPGSHM.SEARCH&ppt=sp&ppn=sp&ssid=tks104kne80000001686118804859&qH=38db84aa91264518')
 
-  await driver.takeScreenshot()
+  await driver.findElement(By.xpath('//*//*[@id="container"]/div/div[3]/div[1]/div[1]/div[2]/div/ul/li[1]/button')).click()
+  await driver.takeScreenshot().then(
+    function(image) {
+      require('fs').writeFileSync('E:\screenSHot\screenshot_img',image,'base64')
+    }
+  )
 }
 test()
